@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 
 # libray - Libre Blu-Ray PS3 ISO Tool
-# Copyright © 2018 - 2021 Nichlas Severinsen
+# Copyright © 2018 - 2024 Nichlas Severinsen
 #
 # This file is part of libray.
 #
@@ -28,5 +28,8 @@ import pkgutil
 __all__ = []
 for loader, module_name, is_pkg in pkgutil.walk_packages(__path__):
     __all__.append(module_name)
-    _module = loader.find_module(module_name).load_module(module_name)
+    try:
+        _module = loader.find_module(module_name).load_module(module_name)
+    except AttributeError:
+        _module = loader.find_spec(module_name).loader.load_module(module_name)
     globals()[module_name] = _module

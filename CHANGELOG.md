@@ -3,6 +3,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.0.10] - 2024-03-07
+
+### Fixed
+- Issue #17: find_module removed in Python 3.12, replaced with find_spec
+
+### Added
+- PR #14: Add tests
+- PR #14: Add option to calculate CRC32 with -c / --checksum
+- Add --info for both -i and -k. Will print info about either .iso or .ird.
+- Added title_id to keys.db
+
+### Changed
+- PR #14: Reworked disc-key lookup logic
+- Added searching for title_id to disc-key lookup logic
+
 ## [0.0.9] - 2022-02-19
 ### Fixed
 - Issue #11: fix read_regions bug which caused incorrect encryption/decryption
